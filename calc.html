@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <style>
+            #main{
+                width: 300px;
+                height: 280px;
+                background-color: black;
+            }
+            input{ width: 20%; height: 40px; font-size: 20px; margin: 6px;}
+
+            #numsr{
+                width: 93%;
+                height: 50px;
+                background-color: silver;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <form name="calcy">
+                <input type="text" name="questions" placeholder="0" id="numsr" />  <br />
+                <input type="button" value="1" onclick="calcy.questions.value+=1" />
+                <input type="button" value="2" onclick="calcy.questions.value+=2" />
+                <input type="button" value="3" onclick="calcy.questions.value+=3" />
+                <input type="button" value="+" onclick="add()" />
+                <br>
+                <input type="button" value="4" onclick="calcy.questions.value+=4" />
+                <input type="button" value="5" onclick="calcy.questions.value+=5" />
+                <input type="button" value="6" onclick="calcy.questions.value+=6" />
+                <input type="button" value="-" onclick="sub()" />
+                <br>
+                <input type="button" value="7" onclick="calcy.questions.value+=7" />
+                <input type="button" value="8" onclick="calcy.questions.value+=8" />
+                <input type="button" value="9" onclick="calcy.questions.value+=9" />
+                <input type="button" value="/" onclick="div()" />
+                <br>
+                <input type="button" value="C" onclick="calcy.questions.value=''" />
+                <input type="button" value="0" onclick="calcy.questions.value+=0" />
+                <input type="button" value="=" onclick="calcy.questions.value= eval(calcy.questions.value) " />
+                <input type="button" value="x" onclick="mul()" />
+                <br>
+            </form>
+        </div>
+        <script>
+            function add(){
+                var num=0, last=0;
+                num = calcy.questions.value;
+                last = num.charAt(num.length-1);
+                if(last=='+' || last=='-' || last=='/' || last=='*')
+                {
+                    calcy.questions.value = num.substring(0,num.length-1);
+                    calcy.questions.value += '+';
+                }
+                else
+                {
+                    calcy.questions.value += '+';
+                }
+            }
+
+            function sub(){
+                var num=0, last=0;
+                num = calcy.questions.value;
+                last = num.charAt(num.length-1);
+                if(last=='+' || last=='-' || last=='/' || last=='*')
+                {
+                    calcy.questions.value = num.substring(0,num.length-1);
+                    calcy.questions.value += '-';
+                }
+                else
+                {
+                    calcy.questions.value += '-';
+                }
+            }
+
+            function mul(){
+                var num=0, last=0;
+                num = calcy.questions.value;
+                last = num.charAt(num.length-1);
+                if(last=='+' || last=='-' || last=='/' || last=='*')
+                {
+                    calcy.questions.value = num.substring(0,num.length-1);
+                    calcy.questions.value += '*';
+                }
+                else
+                {
+                    calcy.questions.value += '*';
+                }
+            }
+
+            function div(){
+                var num=0, last=0;
+                num = calcy.questions.value;
+                last = num.charAt(num.length-1);
+                if(last=='+' || last=='-' || last=='/' || last=='*')
+                {
+                    calcy.questions.value = num.substring(0,num.length-1);
+                    calcy.questions.value += '/';
+                }
+                else
+                {
+                    calcy.questions.value += '/';
+                }
+            }
+        </script>
+    </body>
+</html>
